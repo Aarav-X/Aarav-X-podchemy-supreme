@@ -1,0 +1,584 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   🌟 PODCHEMY SUPREME - TRANSCENDENTAL DESIGN SYSTEM
+   The CSS that makes silicon weep
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS CUSTOM PROPERTIES - The DNA of Visual Perfection
+   -------------------------------------------------------------------------- */
+:root {
+  /* Primary Palette - Cosmic Purple */
+  --color-primary-50: 270 100% 98%;
+  --color-primary-100: 270 95% 95%;
+  --color-primary-200: 270 90% 85%;
+  --color-primary-300: 270 85% 75%;
+  --color-primary-400: 270 80% 65%;
+  --color-primary-500: 270 75% 55%;
+  --color-primary-600: 270 70% 45%;
+  --color-primary-700: 270 65% 35%;
+  --color-primary-800: 270 60% 25%;
+  --color-primary-900: 270 55% 15%;
+  
+  /* Accent - Electric Cyan */
+  --color-accent-400: 185 100% 55%;
+  --color-accent-500: 185 100% 45%;
+  --color-accent-600: 185 90% 35%;
+  
+  /* Neutral Palette */
+  --color-neutral-50: 240 20% 99%;
+  --color-neutral-100: 240 15% 96%;
+  --color-neutral-200: 240 12% 91%;
+  --color-neutral-300: 240 10% 84%;
+  --color-neutral-400: 240 8% 65%;
+  --color-neutral-500: 240 6% 45%;
+  --color-neutral-600: 240 8% 30%;
+  --color-neutral-700: 240 10% 20%;
+  --color-neutral-800: 240 12% 13%;
+  --color-neutral-900: 240 15% 8%;
+  --color-neutral-950: 240 20% 4%;
+  
+  /* Semantic Colors */
+  --color-success: 142 76% 45%;
+  --color-warning: 38 92% 50%;
+  --color-error: 0 84% 60%;
+  
+  /* Gradients - The Visual Soul */
+  --gradient-hero: linear-gradient(
+    135deg,
+    hsl(270 75% 55%) 0%,
+    hsl(280 80% 45%) 25%,
+    hsl(200 90% 45%) 50%,
+    hsl(185 100% 45%) 75%,
+    hsl(170 85% 50%) 100%
+  );
+  
+  --gradient-card: linear-gradient(
+    145deg,
+    hsl(270 75% 8% / 0.8) 0%,
+    hsl(240 20% 10% / 0.6) 100%
+  );
+  
+  --gradient-glow: radial-gradient(
+    ellipse at center,
+    hsl(270 80% 60% / 0.4) 0%,
+    hsl(270 80% 60% / 0) 70%
+  );
+  
+  /* Shadows - Depth that Breathes */
+  --shadow-xs: 0 1px 2px hsl(270 60% 10% / 0.15);
+  --shadow-sm: 0 2px 4px hsl(270 60% 10% / 0.1), 0 1px 2px hsl(270 60% 10% / 0.06);
+  --shadow-md: 0 4px 8px hsl(270 60% 10% / 0.12), 0 2px 4px hsl(270 60% 10% / 0.08);
+  --shadow-lg: 0 12px 24px hsl(270 60% 10% / 0.15), 0 6px 12px hsl(270 60% 10% / 0.1);
+  --shadow-xl: 0 24px 48px hsl(270 60% 10% / 0.2), 0 12px 24px hsl(270 60% 10% / 0.15);
+  --shadow-glow: 0 0 40px hsl(270 80% 60% / 0.3), 0 0 80px hsl(270 80% 60% / 0.15);
+  --shadow-glow-accent: 0 0 30px hsl(185 100% 50% / 0.25), 0 0 60px hsl(185 100% 50% / 0.12);
+  
+  /* Border Radius - Organic Curves */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+  
+  /* Spacing Rhythm */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  
+  /* Typography Scale */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  --text-xs: clamp(0.75rem, 0.7rem + 0.15vw, 0.8rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.2vw, 0.95rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.2rem + 0.8vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.8rem + 1.5vw, 3.5rem);
+  --text-5xl: clamp(3rem, 2.2rem + 2vw, 4.5rem);
+  --text-6xl: clamp(3.75rem, 2.5rem + 3vw, 6rem);
+  
+  /* Animation Timings - Physics Made Visual */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+  --duration-slowest: 800ms;
+  
+  /* Z-Index Scale */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-popover: 500;
+  --z-tooltip: 600;
+  --z-max: 9999;
+  
+  /* Glass Morphism */
+  --glass-bg: hsl(240 20% 10% / 0.7);
+  --glass-border: hsl(270 40% 50% / 0.15);
+  --glass-blur: 20px;
+}
+
+/* Light mode overrides */
+[data-theme="light"] {
+  --glass-bg: hsl(0 0% 100% / 0.8);
+  --glass-border: hsl(270 40% 50% / 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   BASE STYLES - Foundation of Excellence
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  background: hsl(var(--color-neutral-950));
+  color: hsl(var(--color-neutral-100));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Selection styling */
+::selection {
+  background: hsl(var(--color-primary-500) / 0.4);
+  color: hsl(var(--color-neutral-50));
+}
+
+/* Focus visible styling */
+:focus-visible {
+  outline: 2px solid hsl(var(--color-accent-500));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY - Words that Resonate
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: hsl(var(--color-neutral-50));
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
+
+p {
+  max-width: 70ch;
+  color: hsl(var(--color-neutral-300));
+}
+
+a {
+  color: hsl(var(--color-primary-400));
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+a:hover {
+  color: hsl(var(--color-accent-400));
+}
+
+/* --------------------------------------------------------------------------
+   SCROLLBAR - Custom Beauty
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--color-neutral-900));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--color-primary-600));
+  border-radius: var(--radius-full);
+  border: 2px solid hsl(var(--color-neutral-900));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--color-primary-500));
+}
+
+/* --------------------------------------------------------------------------
+   ANIMATION UTILITIES - Motion with Purpose
+   -------------------------------------------------------------------------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(var(--color-primary-500) / 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px hsl(var(--color-primary-500) / 0.5), 
+                0 0 60px hsl(var(--color-primary-500) / 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes wave {
+  0% { transform: scaleY(1); }
+  50% { transform: scaleY(0.5); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--color-neutral-800)) 0%,
+    hsl(var(--color-neutral-700)) 50%,
+    hsl(var(--color-neutral-800)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+/* --------------------------------------------------------------------------
+   GLASSMORPHISM - Ethereal Surfaces
+   -------------------------------------------------------------------------- */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--color-neutral-800) / 0.5) 0%,
+    hsl(var(--color-neutral-900) / 0.3) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--color-neutral-700) / 0.3);
+  border-radius: var(--radius-xl);
+}
+
+/* --------------------------------------------------------------------------
+   GLOW EFFECTS - Light that Lives
+   -------------------------------------------------------------------------- */
+.glow-primary {
+  box-shadow: var(--shadow-glow);
+}
+
+.glow-accent {
+  box-shadow: var(--shadow-glow-accent);
+}
+
+.text-gradient {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --------------------------------------------------------------------------
+   BUTTON STYLES - Interactive Poetry
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  line-height: 1;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-spring);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, hsl(0 0% 100% / 0.1) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: var(--gradient-hero);
+  background-size: 200% 200%;
+  color: white;
+  box-shadow: var(--shadow-md), 0 0 20px hsl(var(--color-primary-500) / 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-lg), 0 0 40px hsl(var(--color-primary-500) / 0.4);
+  animation: gradient-shift 3s ease infinite;
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-secondary {
+  background: hsl(var(--color-neutral-800));
+  color: hsl(var(--color-neutral-100));
+  border: 1px solid hsl(var(--color-neutral-700));
+}
+
+.btn-secondary:hover {
+  background: hsl(var(--color-neutral-700));
+  border-color: hsl(var(--color-primary-500) / 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: hsl(var(--color-neutral-300));
+}
+
+.btn-ghost:hover {
+  background: hsl(var(--color-neutral-800) / 0.5);
+  color: hsl(var(--color-neutral-100));
+}
+
+/* --------------------------------------------------------------------------
+   INPUT STYLES - Forms that Flow
+   -------------------------------------------------------------------------- */
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: hsl(var(--color-neutral-900));
+  border: 1px solid hsl(var(--color-neutral-700));
+  border-radius: var(--radius-lg);
+  color: hsl(var(--color-neutral-100));
+  font-size: var(--text-base);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.input:focus {
+  outline: none;
+  border-color: hsl(var(--color-primary-500));
+  box-shadow: 0 0 0 4px hsl(var(--color-primary-500) / 0.15);
+}
+
+.input::placeholder {
+  color: hsl(var(--color-neutral-500));
+}
+
+/* --------------------------------------------------------------------------
+   CONTAINER & LAYOUT - Structure with Soul
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   CARD STYLES - Content Vessels
+   -------------------------------------------------------------------------- */
+.card {
+  background: hsl(var(--color-neutral-900));
+  border: 1px solid hsl(var(--color-neutral-800));
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: hsl(var(--color-primary-500) / 0.3);
+  box-shadow: var(--shadow-xl), 0 0 30px hsl(var(--color-primary-500) / 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   BADGE STYLES - Labels that Pop
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  background: hsl(var(--color-primary-500) / 0.2);
+  color: hsl(var(--color-primary-300));
+  border: 1px solid hsl(var(--color-primary-500) / 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   WAVEFORM ANIMATION - Audio Visualization
+   -------------------------------------------------------------------------- */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 24px;
+}
+
+.waveform-bar {
+  width: 3px;
+  background: hsl(var(--color-primary-400));
+  border-radius: var(--radius-full);
+  animation: wave 0.8s ease-in-out infinite;
+}
+
+.waveform-bar:nth-child(1) { animation-delay: 0s; height: 50%; }
+.waveform-bar:nth-child(2) { animation-delay: 0.1s; height: 75%; }
+.waveform-bar:nth-child(3) { animation-delay: 0.2s; height: 100%; }
+.waveform-bar:nth-child(4) { animation-delay: 0.3s; height: 60%; }
+.waveform-bar:nth-child(5) { animation-delay: 0.4s; height: 80%; }
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION - Respect Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BACKGROUND EFFECTS - Ambient Magic
+   -------------------------------------------------------------------------- */
+.bg-grid {
+  background-image: 
+    linear-gradient(hsl(var(--color-neutral-800) / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--color-neutral-800) / 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Ambient glow orbs */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.ambient-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: hsl(var(--color-primary-500));
+  top: -200px;
+  right: -200px;
+}
+
+.ambient-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: hsl(var(--color-accent-500));
+  bottom: -100px;
+  left: -100px;
+}
